@@ -1,12 +1,11 @@
-import StudentInfo from './StudentInfo'
+import StudentInfo from '../StudentInfo'
 import Link from 'next/link'
 
 export default function Home() {
   return (
     <main className="min-h-screen flex-col items-center justify-between p-24">
-      <h1 class="text-3xl">CPRG 306: Web Development 2 - Assignments</h1>
+      <h1 class="text-3xl">My Shopping List</h1>
       <StudentInfo />
-      <Link href="/week2">Link to Week 2</Link>
     </main>
   )
 }
