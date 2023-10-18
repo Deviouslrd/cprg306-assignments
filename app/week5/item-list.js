@@ -16,10 +16,15 @@ export default function ItemList ({name, quantity, category}) {
 		return 0;
 	});
 
+	// Conditional class application
+	const sortedByName = sortBy === 'name';
+	const sortedByCategory = sortBy === 'category';
+
+
     return (
 		<div>
-			<button className="bg-white p-1 text-black rounded border-4 border-slate-600 mr-2" onClick={() => setSortBy('name')}>Sort By Name</button>
-      		<button className="bg-white p-1 text-black rounded border-4 border-slate-600 mr-2" onClick={() => setSortBy('category')}>Sort By Category</button>
+			<button className={`bg-white p-1 text-black rounded border-4 border-slate-600 mr-2 hover:bg-gray-400 ${sortedByName ? "bg-orange-400" : "bg-white"}`} onClick={() => setSortBy('name')}>Sort By Name</button>
+      		<button className={`bg-white p-1 text-black rounded border-4 border-slate-600 mr-2 hover:bg-gray-400 ${sortedByCategory ? "bg-orange-400" : ""}`}  onClick={() => setSortBy('category')}>Sort By Category</button>
 			<ul>
 				{ itemList.map((item) => (
 					<li className="bg-slate-800 my-3" key={item.id}>
