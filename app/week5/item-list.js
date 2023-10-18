@@ -1,41 +1,32 @@
 "use client"
 import Item from './item';
-import items from './items.json'
+import itemData from './items.json'
 const { useState } = require('react');
 
 export default function ItemList ({name, quantity, category}) {
 	const [sortBy, setSortBy] = useState("name");
-	//let itemList = [];
 
-	function sortByName () {
-		let newList = items.sort((a, b) => {
-			if (a.name > b.name) {
-				return 1;
-			}
+	const itemList = [...itemData].sort((a, b) => {
+		if (sortBy === 'name') {
+			return a.name.localeCompare(b.name);
+		} else if (sortBy === 'category') {
+			return a.category.localeCompare(b.category);
+		}
 
-			if (a.name < b.name) {
-				return -1;
-			}
-
-			return 0;
-		});
-
-		return newList;
-	}
-
-	function sortByCategory () {
-		
-	}
-
-
+		return 0;
+	});
 
     return (
-        <ul>
-			{ items.map((item) => (
-				<li className="bg-slate-800 my-3" key={item}>
-					<Item name={item.name} quantity={item.quantity} category={item.category}></Item>
-				</li>
-			))}
-        </ul>
+		<div>
+			<button className="bg-white p-1 text-black rounded border-4 border-slate-600 mr-2" onClick={() => setSortBy('name')}>Sort By Name</button>
+      		<button className="bg-white p-1 text-black rounded border-4 border-slate-600 mr-2" onClick={() => setSortBy('category')}>Sort By Category</button>
+			<ul>
+				{ itemList.map((item) => (
+					<li className="bg-slate-800 my-3" key={item.id}>
+						<Item name={item.name} quantity={item.quantity} category={item.category}></Item>
+					</li>
+				))}
+			</ul>
+		</div>
     )
 }
