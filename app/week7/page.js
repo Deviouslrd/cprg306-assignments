@@ -16,7 +16,10 @@ export default function SortList() {
 	}
 
 	function handleItemSelect (selectedItem) {
-		setSelectedItemName(selectedItem.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, ''));
+		console.log(selectedItem)
+		console.log(selectedItemName)
+		setSelectedItemName(selectedItem.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, ''));
+		console.log(selectedItemName)
 	}
 
     return (
@@ -24,9 +27,9 @@ export default function SortList() {
 				<h1 className="text-3xl">My Shopping List</h1>
 				<div className="flex">
 					<NewItem onAddItem={e => handleAddItem(e)}></NewItem>
-					<ItemList items={itemList} onItemSelect={e => handleItemSelect(e.target.innerHTML)}/>	
-				</div>
-				<MealIdeas ingredient={selectedItemName}/>
+					<ItemList items={itemList} onItemSelect={() => /*handleItemSelect(e.target.innerText)*/ console.log("yes")}/>	
+					<MealIdeas ingredient={selectedItemName}/>
+			</div>
 		</main>
     )
 }

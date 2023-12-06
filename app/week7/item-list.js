@@ -23,7 +23,7 @@ export default function ItemList ({name, quantity, category, items, onItemSelect
 			<ul>
 				{ itemList.map((item) => (
 					<li className="bg-slate-800 my-3" key={item.id}>
-						<Item name={item.name} quantity={item.quantity} category={item.category} onSelect={onItemSelect}></Item>
+						<Item name={item.name} quantity={item.quantity} category={item.category} onSelect={console.log(onItemSelect)}></Item>
 					</li>
 				))}
 			</ul>
