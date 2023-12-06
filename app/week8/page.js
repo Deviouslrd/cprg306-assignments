@@ -54,7 +54,7 @@ export default function Page () {
                 ) }
             </section>
 
-            <Link href="/week8/secured">Verify account status</Link>
+            <Link href="/week8/secured">Account page</Link>
         </main>
     )
 }

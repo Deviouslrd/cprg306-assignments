@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context"
+import SecuredShopping from "../shopping-list/page";
 
 export default function Page () {
 
@@ -12,6 +13,7 @@ export default function Page () {
             <header>Secret page</header>
             <section>
                 <p>Welcome, {user.displayName}. You have been successfully signed in.</p>
+                <SecuredShopping />
             </section>
             <Link href="./">Go back</Link>
         </main>       

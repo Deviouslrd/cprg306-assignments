@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useUserAuth } from "../_utils/auth-context"
-import SortList from "@/app/week7/page";
+import SecuredDbShopping from "@/app/week10/shopping-list/page";
 
 export default function Page () {
 
@@ -10,7 +10,7 @@ export default function Page () {
 
     return user ? ( 
         <main>
-            <SortList />
+            <SecuredDbShopping user={user}/>
             <Link href="./">Go back</Link>
         </main>       
 
